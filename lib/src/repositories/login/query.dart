@@ -1,0 +1,94 @@
+String listAds() {
+  return ("""query{
+  listMyAds{
+    success,
+    message,
+    updates,
+    token,
+    errors{
+      message,
+      path
+    },
+    data{
+      id_anuncio,
+      titulo, 
+      descripcion, 
+      latitud,
+      longitud,
+      estado,
+      fecha_inicio,
+      fecha_fin,
+      valor_soles,
+      valor_dolares,
+      referencia,
+      id_usuario,
+      id_categoria,
+      reacciones,
+      telefonos{
+        id_telefono,
+        principal,
+        numero,
+        id_anuncio
+      },
+      imagenes{
+        id_imagen,
+        img,
+        createdAt,
+        updatedAt,
+        id_anuncio
+      },
+      categoria{
+        id_categoria,
+        categoria,
+        estado,
+        id_categoria_padre
+      },
+      subcategoria{
+        id_categoria,
+        categoria,
+        estado,
+        id_categoria_padre
+      }
+      detalle_anuncios{
+        id_detalle_anuncio,
+        descripcion,
+        id_anuncio,
+        id_detalle_anuncio_padre
+      },
+    }
+  }
+}""");
+}
+
+String me() {
+  return ("""query{
+  me{
+    success,
+    message,
+    updates,
+    token,
+    errors{
+      message,
+      path
+    },
+    data{
+      id_usuario,
+      id_rol,
+      password,
+      email,
+      estado,
+      fecha_creacion,
+      fecha_actualizacion,
+      email_token,
+      persona{
+        id_usuario,
+        nombres,
+        apellidos,
+        sexo,
+        fecha_nacimiento
+      }
+    }
+  }
+}
+""");
+}

@@ -1,0 +1,61 @@
+String queryShowAds(double lat, double lon, double km, int page, int limit) {
+  return ("""query{
+  showAds(lat:$lat, lon:$lon, km:$km, page:$page, limit:$limit){
+    success,
+    message,
+    updates,
+    token,
+    errors{
+      message,
+      path
+    },
+    data{
+      id_anuncio,
+      titulo, 
+      descripcion, 
+      latitud,
+      longitud,
+      estado,
+      fecha_inicio,
+      fecha_fin,
+      valor_soles,
+      valor_dolares,
+      referencia,
+      id_usuario,
+      id_categoria,
+      reacciones,
+      telefonos{
+        id_telefono,
+        principal,
+        numero,
+        id_anuncio
+      },
+      imagenes{
+        id_imagen,
+        img,
+        createdAt,
+        updatedAt,
+        id_anuncio
+      },
+      categoria{
+        id_categoria,
+        categoria,
+        estado,
+        id_categoria_padre
+      },
+      subcategoria{
+        id_categoria,
+        categoria,
+        estado,
+        id_categoria_padre
+      }
+      detalle_anuncios{
+        id_detalle_anuncio,
+        descripcion,
+        id_anuncio,
+        id_detalle_anuncio_padre
+      },
+    }
+  }
+}""");
+}
